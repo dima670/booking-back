@@ -15,6 +15,13 @@ class CreateCalendarsTable extends Migration
     {
         Schema::create('calendars', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('room_id');
+            $table->timestamp('time_from');
+            $table->timestamp('time_to');
+            $table->bigInteger('client_id');
+            $table->bigInteger('payment_id');
+            $table->boolean('cancelled')->default(0);
+            $table->bigInteger('task_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

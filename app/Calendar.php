@@ -12,4 +12,32 @@ class Calendar extends Model
 
     use SoftDeletes;
 
+    protected $attributes = [
+        'cancelled' => false,
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'created_at', 'updated_at', 'deleted_at'
+    ];
+
+    public function payment()
+    {
+        return $this->belongsTo('App\Payment');
+    }
+
+    public function room()
+    {
+        return $this->belongsTo('App\Room');
+    }
+
+    public function client()
+    {
+        return $this->belongsTo('App\Client');
+    }
+
 }
