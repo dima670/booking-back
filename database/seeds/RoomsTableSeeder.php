@@ -11,6 +11,6 @@ class RoomsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $users = factory(App\Room::class, 10)->create();
     }
 }

@@ -11,6 +11,6 @@ class BranchesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $users = factory(App\Branch::class, 5)->create();
     }
 }
