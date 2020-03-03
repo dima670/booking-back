@@ -12,4 +12,13 @@ class Room extends Model
 
     use SoftDeletes;
 
+    protected $hidden = [
+        'created_at', 'updated_at', 'deleted_at'
+    ];
+
+    public function branch()
+    {
+        return $this->belongsTo('App\Branch');
+    }
+
 }

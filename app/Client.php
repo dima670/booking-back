@@ -12,4 +12,18 @@ class Client extends Model
 
     use SoftDeletes;
 
+    protected $hidden = [
+        'created_at', 'updated_at', 'deleted_at'
+    ];
+
+    public function payments()
+    {
+        return $this->hasMany('App\Payment');
+    }
+
+    public function calendars()
+    {
+        return $this->hasMany('App\Calendar');
+    }
+
 }

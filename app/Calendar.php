@@ -27,17 +27,17 @@ class Calendar extends Model
 
     public function payment()
     {
-        return $this->belongsTo('App\Payment');
+        return $this->hasOne('App\Payment');
     }
 
     public function room()
     {
-        return $this->belongsTo('App\Room');
+        return $this->hasOne('App\Room');
     }
 
     public function client()
     {
-        return $this->belongsTo('App\Client');
+        return $this->hasOne('App\Client');
     }
 
 }
