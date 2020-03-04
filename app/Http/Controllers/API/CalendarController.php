@@ -16,7 +16,7 @@ class CalendarController extends BaseController
      */
     public function index()
     {
-        return new CalendarCollection(Calendar::all());
+        return $this->sendResponse(new CalendarCollection(Calendar::all()), 'Success Ok');
     }
 
     /**
