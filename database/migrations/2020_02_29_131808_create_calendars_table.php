@@ -22,6 +22,7 @@ class CreateCalendarsTable extends Migration
             $table->bigInteger('payment_id');
             $table->boolean('cancelled')->default(0);
             $table->bigInteger('task_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

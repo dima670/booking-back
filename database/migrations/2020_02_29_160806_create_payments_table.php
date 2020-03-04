@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('client_id');
             $table->bigInteger('calendar_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
             $table->decimal('price',8,2);
             $table->decimal('paid',8,2);
             $table->text('comment')->nullable();
