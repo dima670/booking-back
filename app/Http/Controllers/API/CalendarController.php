@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Calendar;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Http\Request;
 
-class CalendarController extends Controller
+class CalendarController extends BaseController
 {
     /**
      * Display a listing of the resource.
