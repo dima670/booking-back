@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Calendar;
 use App\Http\Controllers\API\BaseController as BaseController;
+use App\Http\Resources\CalendarCollection;
 use Illuminate\Http\Request;
 
 class CalendarController extends BaseController
@@ -15,7 +16,7 @@ class CalendarController extends BaseController
      */
     public function index()
     {
-        //
+        return new CalendarCollection(Calendar::all());
     }
 
     /**
