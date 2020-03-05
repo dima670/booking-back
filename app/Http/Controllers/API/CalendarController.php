@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Calendar;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Http\Resources\CalendarCollection;
+use App\Http\Resources\Calendar as CalendarResource;
 use Illuminate\Http\Request;
 
 class CalendarController extends BaseController
@@ -33,12 +34,12 @@ class CalendarController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Calendar  $calendar
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Calendar $calendar)
+    public function show($id)
     {
-        return $this->sendResponse(new \App\Http\Resources\Calendar(Calendar::find($calendar)), 'Success Ok');
+        return $this->sendResponse(new CalendarResource(Calendar::find($id)), 'Success Ok');
     }
 
     /**
