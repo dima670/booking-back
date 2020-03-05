@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Branch;
+use App\Http\Controllers\API\BaseController as BaseController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BranchController extends Controller
+class BranchController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +19,6 @@ class BranchController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -50,16 +42,6 @@ class BranchController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Branch  $branch
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Branch $branch)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

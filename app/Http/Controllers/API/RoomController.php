@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\API\BaseController as BaseController;
+use App\Http\Resources\RoomCollection;
+use App\Http\Resources\Room as RoomResource;
 use App\Room;
 use Illuminate\Http\Request;
 
-class RoomController extends Controller
+class RoomController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -15,18 +18,10 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        return $this->sendResponse(new RoomCollection(Room::all()), 'Success Ok');
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -47,19 +42,9 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        return $this->sendResponse(new RoomResource($room), 'Success Ok');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Room  $room
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Room $room)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
