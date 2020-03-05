@@ -13,11 +13,13 @@ class CalendarController extends BaseController
     /**
      * Display a listing of the resource.
      *
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return $this->sendResponse(new CalendarCollection(Calendar::all()), 'Success Ok');
+        $id = $request->input('id');
+        return $this->sendResponse(new CalendarCollection(Calendar::where('id', '>', $id)->get()), 'Success Ok');
     }
 
     /**
