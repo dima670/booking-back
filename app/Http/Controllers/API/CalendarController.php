@@ -38,7 +38,7 @@ class CalendarController extends BaseController
      */
     public function show(Calendar $calendar)
     {
-        //
+        return $this->sendResponse(new \App\Http\Resources\Calendar(Calendar::find($calendar)), 'Success Ok');
     }
 
     /**
