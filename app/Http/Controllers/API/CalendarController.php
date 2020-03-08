@@ -22,7 +22,7 @@ class CalendarController extends BaseController
 
         if ($request->has('room')) {
             $roomId = $request->input('room');
-            $calendars = Calendar::with('room')->find($roomId);
+            $calendars = Calendar::with('room')->find($roomId)->get();
         }
         $respone = new CalendarCollection($calendars);
         return $this->sendResponse($respone, 'Success Ok');
