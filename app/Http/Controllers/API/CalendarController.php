@@ -25,6 +25,7 @@ class CalendarController extends BaseController
             });
             $respone = new CalendarCollection($calendars);
         }
+        $calendars = Calendar::all();
         return $this->sendResponse($respone, 'Success Ok');
     }
 
