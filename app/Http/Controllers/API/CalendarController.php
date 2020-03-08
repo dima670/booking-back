@@ -18,13 +18,14 @@ class CalendarController extends BaseController
      */
     public function index(Request $request)
     {
+        $calendars = Calendar::all();
+
         if ($request->has('room')) {
             $roomId = $request->input('room');
             $calendars = Calendar::whereHas('room', function ($q) use($roomId) {
                 $q->where('id', $roomId);
             });
         }
-        $calendars = Calendar::all();
         $respone = new CalendarCollection($calendars);
         return $this->sendResponse($respone, 'Success Ok');
     }
