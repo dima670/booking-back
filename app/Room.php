@@ -21,4 +21,9 @@ class Room extends Model
         return $this->belongsTo('App\Branch');
     }
 
+    public function calendars()
+    {
+        return $this->hasMany('App\Calendar');
+    }
+
 }

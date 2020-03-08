@@ -32,7 +32,7 @@ class Calendar extends Model
 
     public function room()
     {
-        return $this->hasOne('App\Room');
+        return $this->belongsTo('App\Room');
     }
 
     public function client()
