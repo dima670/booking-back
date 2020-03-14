@@ -20,7 +20,7 @@ class BranchCollection extends ResourceCollection
             'address' => $this->address,
             'work_from' => $this->word_from,
             'work_to' => $this->work_to,
-            'rooms' => RoomCollection::($this->whenLoaded('rooms')),
+            'rooms' => RoomCollection::collection($this->whenLoaded('rooms')),
         ];
     }
 }
