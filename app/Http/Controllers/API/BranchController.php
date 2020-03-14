@@ -17,7 +17,7 @@ class BranchController extends BaseController
      */
     public function index()
     {
-        $branches = Branch::with('rooms')->get();
+        $branches = Branch::all();
         $response = new BranchCollection($branches);
 
         return $this->sendResponse($response, 'Success Ok');
