@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\RoomCollection;
 
 class Branch extends JsonResource
 {
@@ -14,6 +15,13 @@ class Branch extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->branch_name,
+            'address' => $this->address,
+            'work_from' => $this->word_from,
+            'work_to' => $this->work_to,
+            'rooms' => new RoomCollection($this->load('rooms')),
+        ];
     }
 }
