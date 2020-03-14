@@ -22,7 +22,7 @@ class Branch extends JsonResource
             'address' => $this->address,
             'work_from' => $this->work_from,
             'work_to' => $this->work_to,
-            'rooms' => new RoomCollection($this->whenLoaded('rooms')),
+            'rooms' => new RoomCollection($this->with('rooms')->get()),
         ];
     }
 }
