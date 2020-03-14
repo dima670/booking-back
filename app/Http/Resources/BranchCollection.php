@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\RoomCollection;
 
 class BranchCollection extends ResourceCollection
 {
@@ -20,7 +21,7 @@ class BranchCollection extends ResourceCollection
             'address' => $this->address,
             'work_from' => $this->word_from,
             'work_to' => $this->work_to,
-            'rooms' => RoomCollection::collection($this->whenLoaded('rooms')),
+            'rooms' => new RoomCollection($this->whenLoaded('rooms')),
         ];
     }
 }
