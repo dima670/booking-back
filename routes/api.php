@@ -23,6 +23,7 @@ Route::group([
     Route::apiResources([
         '/calendars' => 'API\CalendarController',
         '/rooms' => 'API\RoomController',
+        '/branches' => 'API\BranchController',
     ]);
 });
 
