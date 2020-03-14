@@ -16,7 +16,7 @@ class BranchCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
+//            'id' => $this->id,
             'name' => $this->branch_name,
             'address' => $this->address,
             'work_from' => $this->word_from,
