@@ -21,7 +21,7 @@ class BranchCollection extends ResourceCollection
             'address' => $this->address,
             'work_from' => $this->word_from,
             'work_to' => $this->work_to,
-            'rooms' => new RoomCollection($this->load('rooms')),
+//            'rooms' => new RoomCollection($this->load('rooms')),
         ];
     }
 }
