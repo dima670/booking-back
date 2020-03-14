@@ -17,7 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResources([
-    '/calendars' => 'API\CalendarController',
-    '/rooms' => 'API\RoomController',
-]);
+Route::group([
+   'middleware' => ['cors']
+], function ($router) {
+    Route::apiResources([
+        '/calendars' => 'API\CalendarController',
+        '/rooms' => 'API\RoomController',
+    ]);
+});
+
