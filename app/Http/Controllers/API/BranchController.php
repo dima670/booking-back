@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Branch;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BranchCollection;
 use Illuminate\Http\Request;
 
 class BranchController extends BaseController
@@ -16,7 +17,10 @@ class BranchController extends BaseController
      */
     public function index()
     {
-        //
+        $branches = Branch::all();
+        $response = new BranchCollection($branches);
+
+        return $this->sendResponse($response, 'Success Ok');
     }
 
 

@@ -26,8 +26,8 @@ class CalendarController extends BaseController
                 $q->where('id', '=', $roomId);
             })->get();
         }
-        $respone = new CalendarCollection($calendars);
-        return $this->sendResponse($respone, 'Success Ok');
+        $response = new CalendarCollection($calendars);
+        return $this->sendResponse($response, 'Success Ok');
     }
 
     /**
