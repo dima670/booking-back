@@ -21,7 +21,7 @@ class Branch extends JsonResource
             'address' => $this->address,
             'work_from' => $this->work_from,
             'work_to' => $this->work_to,
-            'rooms' => RoomResource::collection($this->load('rooms')),
+            'rooms' => new RoomResource($this->load('rooms')),
         ];
     }
 }
