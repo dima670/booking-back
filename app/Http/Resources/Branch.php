@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Room as RoomResource;
+use App\Http\Resources\RoomCollection;
 
 class Branch extends JsonResource
 {
