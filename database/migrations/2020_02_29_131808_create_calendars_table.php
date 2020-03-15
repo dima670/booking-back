@@ -23,6 +23,7 @@ class CreateCalendarsTable extends Migration
             $table->boolean('cancelled')->default(0);
             $table->bigInteger('task_id')->nullable();
             $table->bigInteger('user_id')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
