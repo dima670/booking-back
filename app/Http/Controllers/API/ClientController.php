@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Client;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ClientCollection;
 use Illuminate\Http\Request;
 
 class ClientController extends BaseController
@@ -16,7 +17,10 @@ class ClientController extends BaseController
      */
     public function index()
     {
-        //
+        $branches = Client::all();
+        $response = new ClientCollection($branches);
+
+        return $this->sendResponse($response, 'Success Ok');
     }
 
 

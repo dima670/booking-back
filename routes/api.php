@@ -24,6 +24,7 @@ Route::group([
         '/calendars' => 'API\CalendarController',
         '/rooms' => 'API\RoomController',
         '/branches' => 'API\BranchController',
+        '/clients' => 'API\BranchController',
     ]);
 });
 
