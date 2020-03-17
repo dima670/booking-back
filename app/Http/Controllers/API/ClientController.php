@@ -21,7 +21,7 @@ class ClientController extends BaseController
         if ($request->has('search')) {
             $stringSearch = $request->input('search');
             $clients = Client::whereRaw("CONCAT('first_name', ' ', 'last_name', ' ', 'middle_name')
-                'ILIKE' '%'.$stringSearch.'%'")->get();
+                ILIKE %.$stringSearch.%")->get();
         } else {
             $clients = Client::all();
 
