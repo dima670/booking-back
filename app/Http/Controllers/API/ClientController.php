@@ -15,10 +15,17 @@ class ClientController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $branches = Client::all();
-        $response = new ClientCollection($branches);
+        if ($request->has('search')) {
+            $stringSearch = $request->input('search');
+            $clients = Client::select('*', DB::raw("CONCAT(`first_name`, ' ', `last_name`, ' ', `middle_name`)"),
+                'ILIKE', "%".$stringSearch."%");
+        } else {
+            $clients = Client::all();
+
+        }
+        $response = new ClientCollection($clients);
 
         return $this->sendResponse($response, 'Success Ok');
     }
