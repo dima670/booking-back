@@ -19,9 +19,9 @@ class ClientController extends BaseController
     public function index(Request $request)
     {
         if ($request->has('search')) {
-            $stringSearch = $request->input('search');
-            $clients = Client::whereRaw("CONCAT('first_name', ' ', 'last_name', ' ', 'middle_name')
-                ILIKE %.$stringSearch.%")->get();
+            $stringSearch = strtolower($request->input('search'));
+            $clients = Client::whereRaw("lower(CONCAT('first_name', ' ', 'last_name', ' ', 'middle_name'))
+                LIKE %.$stringSearch.%")->get();
         } else {
             $clients = Client::all();
 
