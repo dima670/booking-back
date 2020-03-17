@@ -18,7 +18,7 @@ class CalendarController extends BaseController
      */
     public function index(Request $request)
     {
-        $calendars = Calendar::with('payment')->get();
+        $calendars = Calendar::with(['payment', 'client'])->get();
 
         if ($request->has('room')) {
             $roomId = $request->input('room');
