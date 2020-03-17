@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Client;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Http\Controllers\Controller;
+use DB;
 use App\Http\Resources\ClientCollection;
 use Illuminate\Http\Request;
 
