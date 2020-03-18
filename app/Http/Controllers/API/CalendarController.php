@@ -47,7 +47,7 @@ class CalendarController extends BaseController
 //        } else {
 //            $client = $calendar->client()->create($client);
 //        }
-        $client = $calendar->client()->updateOrCreate(['id' => $client['id']], $client);
+        $client = Client::updateOrCreate(['id' => $client['id']], $client);
 
         $calendar->fill($request->only([
             'room_id',
