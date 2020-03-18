@@ -40,10 +40,17 @@ class CalendarController extends BaseController
     {
         $calendar = new Calendar();
         $client = $request->input('client');
+//        $payment = $request->input('payment');
 
-        $calendar->fill($request->all());
+        $calendar->fill($request->only([
+            'room_id',
+            'time_from',
+            'time_to',
+            'comment',
+        ]));
 
         $calendar->client()->updateOrCreate($client);
+//        $calendar->payment()->updateOrCreate($payment);
 
         $calendar->push();
 
