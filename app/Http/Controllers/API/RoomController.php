@@ -32,7 +32,7 @@ class RoomController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+        return $this->sendResponse(null, 'store Ok');
     }
 
     /**
@@ -57,7 +57,7 @@ class RoomController extends BaseController
      */
     public function update(Request $request, Room $room)
     {
-        //
+        return $this->sendResponse(null, 'Update Ok');
     }
 
     /**
