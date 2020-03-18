@@ -38,27 +38,27 @@ class CalendarController extends BaseController
      */
     public function store(Request $request)
     {
-        $calendar = new Calendar();
+//        $calendar = new Calendar();
         $client = $request->input('client');
 //        $payment = $request->input('payment');
-        $client = $calendar->client()->updateOrCreate($client);
-
-
-        $calendar->fill($request->only([
-            'room_id',
-            'time_from',
-            'time_to',
-            'comment',
-        ]));
-
-        $calendar->client()->associate($client);
-
-//        $calendar->payment()->updateOrCreate($payment);
-
-        $calendar->push();
-
-        $response = $calendar->load(['payment', 'client']);
-        return $this->sendResponse(new CalendarResource($response), 'Success Ok');
+//        $client = $calendar->client()->updateOrCreate($client);
+//
+//
+//        $calendar->fill($request->only([
+//            'room_id',
+//            'time_from',
+//            'time_to',
+//            'comment',
+//        ]));
+//
+//        $calendar->client()->associate($client);
+//
+////        $calendar->payment()->updateOrCreate($payment);
+//
+//        $calendar->push();
+//
+//        $response = $calendar->load(['payment', 'client']);
+        return $this->sendResponse($client, 'Success Ok');
     }
 
     /**
