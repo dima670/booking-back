@@ -43,7 +43,7 @@ class RoomController extends BaseController
      */
     public function show(Room $room)
     {
-        $room = $room->with('branch')->get();
+        $room = $room->load('branch');
         return $this->sendResponse(new RoomResource($room), 'Success Ok');
     }
 
