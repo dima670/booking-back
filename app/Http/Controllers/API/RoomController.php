@@ -21,7 +21,6 @@ class RoomController extends BaseController
         $rooms = Room::with('branch')->get();
 
         return $this->sendResponse(new RoomCollection($rooms), 'Success Ok');
-
     }
 
 
@@ -44,6 +43,7 @@ class RoomController extends BaseController
      */
     public function show(Room $room)
     {
+        $room = Room::findId($room)->with('branch')->get();
         return $this->sendResponse(new RoomResource($room), 'Success Ok');
     }
 
