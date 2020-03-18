@@ -43,6 +43,8 @@ class CalendarController extends BaseController
 //        $payment = $request->input('payment');
         if (!array_key_exists('id', $client)) {
             $client = $calendar->client()->create($client);
+        } else {
+            $client = $calendar->client()->find($client['id']);
         }
 
         $calendar->fill($request->only([
