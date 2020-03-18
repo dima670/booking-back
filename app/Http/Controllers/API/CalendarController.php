@@ -41,8 +41,7 @@ class CalendarController extends BaseController
         $calendar = new Calendar();
         $client = $request->input('client');
 //        $payment = $request->input('payment');
-        $clientArr = json_decode($client);
-        if (!array_key_exists('id', $clientArr)) {
+        if (!array_key_exists('id', $client)) {
             $client = $calendar->client()->create($client);
         }
 
