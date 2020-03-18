@@ -49,7 +49,7 @@ class CalendarController extends BaseController
      */
     public function show(Calendar $calendar)
     {
-        $calendar = $calendar->with(['payment', 'client']);
+        $calendar = $calendar->load(['payment', 'client']);
         return $this->sendResponse(new CalendarResource($calendar), 'Success Ok');
     }
 
