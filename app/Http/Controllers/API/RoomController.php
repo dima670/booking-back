@@ -18,7 +18,7 @@ class RoomController extends BaseController
      */
     public function index()
     {
-        $rooms = Room::all()-with('branch')->get();
+        $rooms = Room::with('branch')->get();
 
         return $this->sendResponse(new RoomCollection($rooms), 'Success Ok');
 
