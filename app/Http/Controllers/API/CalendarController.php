@@ -65,7 +65,7 @@ class CalendarController extends BaseController
         $calendar->update($request->all());
 
         $response = $calendar->load(['payment', 'client']);
-        return $this->sendResponse($request->all(), 'Success Ok');
+        return $this->sendResponse(new CalendarResource($response), 'Success Ok');
     }
 
     /**
