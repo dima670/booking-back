@@ -62,8 +62,9 @@ class CalendarController extends BaseController
      */
     public function update(Request $request, Calendar $calendar)
     {
-        $calendar->update($request->all());
-
+        $calendar->time_from = $request->input("time_from");
+        $calendar->save();
+        
         $response = $calendar->load(['payment', 'client']);
         return $this->sendResponse(new CalendarResource($response), 'Success Ok');
     }
