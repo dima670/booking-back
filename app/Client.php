@@ -16,6 +16,12 @@ class Client extends Model
         'created_at', 'updated_at', 'deleted_at'
     ];
 
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'middle_name',
+    ];
+
     public function payments()
     {
         return $this->hasMany('App\Payment');
