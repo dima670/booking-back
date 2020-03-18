@@ -43,7 +43,7 @@ class CalendarController extends BaseController
 
         $calendar->fill($request->all());
 
-        $calendar->client()->fill($client);
+        $calendar->client()->updateOrCreate($client);
 
         $calendar->push();
 
