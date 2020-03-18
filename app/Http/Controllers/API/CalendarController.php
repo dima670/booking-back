@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Calendar;
+use App\Client;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Http\Resources\CalendarCollection;
 use App\Http\Resources\Calendar as CalendarResource;
@@ -42,7 +43,7 @@ class CalendarController extends BaseController
         $client = $request->input('client');
 //        $payment = $request->input('payment');
         if (isset($client['id'])) {
-            $client = $calendar->client()->find($client['id']);
+            $client = Client::find($client['id']);
         } else {
             $client = $calendar->client()->create($client);
         }
