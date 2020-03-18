@@ -38,7 +38,17 @@ class CalendarController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+        $calendar = new Calendar();
+        $client = $request->input('client');
+
+        $calendar->fill($request->all());
+
+        $calendar->client()->fill($client);
+
+        $calendar->push();
+
+        $response = $calendar->load(['payment', 'client']);
+        return $this->sendResponse(new CalendarResource($response), 'Success Ok');
     }
 
     /**
@@ -62,7 +72,7 @@ class CalendarController extends BaseController
      */
     public function update(Request $request, Calendar $calendar)
     {
-        $calendar->time_from = $request->input("time_fro");
+        $calendar->fill($request->all());
         $calendar->save();
 
         $response = $calendar->load(['payment', 'client']);

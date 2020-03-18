@@ -16,6 +16,14 @@ class Calendar extends Model
         'cancelled' => false,
     ];
 
+    protected $fillable = [
+        'room_id',
+        'time_from',
+        'time_to',
+        'cancelled',
+        'comment',
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
